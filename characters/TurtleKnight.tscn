@@ -1,34 +1,34 @@
 [gd_scene load_steps=12 format=3 uid="uid://brd87uqwjbj7r"]
 
 [ext_resource type="Script" path="res://Scripts/TurtleKnight.gd" id="1_wl3d3"]
-[ext_resource type="Texture2D" uid="uid://dj4oukdros7pj" path="res://Textures/TurtleKnight.png" id="2_6pjub"]
+[ext_resource type="Texture2D" uid="uid://dj4oukdros7pj" path="res://Textures/TurtleKnight.png" id="2_6fw1w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvvtf"]
-atlas = ExtResource("2_6pjub")
+atlas = ExtResource("2_6fw1w")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eu6br"]
-atlas = ExtResource("2_6pjub")
+atlas = ExtResource("2_6fw1w")
 region = Rect2(80, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fdbvc"]
-atlas = ExtResource("2_6pjub")
+atlas = ExtResource("2_6fw1w")
 region = Rect2(96, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iygoh"]
-atlas = ExtResource("2_6pjub")
+atlas = ExtResource("2_6fw1w")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ernew"]
-atlas = ExtResource("2_6pjub")
+atlas = ExtResource("2_6fw1w")
 region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eg0ov"]
-atlas = ExtResource("2_6pjub")
+atlas = ExtResource("2_6fw1w")
 region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jfq1q"]
-atlas = ExtResource("2_6pjub")
+atlas = ExtResource("2_6fw1w")
 region = Rect2(64, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l0gmq"]

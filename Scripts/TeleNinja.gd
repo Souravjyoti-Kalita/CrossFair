@@ -16,13 +16,7 @@ extends CharacterBody2D
 @onready var coyote_timer = $CoyoteTimer
 @onready var jump_buffer = $JumpBuffer
 @onready var jump_count:int = 0
-@onready var sprite = $AnimatedSprite2D
-func _init():
-	'''
-	if alt_skin:
-		sprite.
-'''
-
+@onready var sprite = $Sprite2D
 func _process(_delta):
 	if Input.get_axis("ui_left", "ui_right") < 0.0:
 		sprite.flip_h = true
@@ -31,9 +25,9 @@ func _process(_delta):
 	
 	if is_on_floor():
 		if Input.get_axis("ui_left", "ui_right") == 0:
-			sprite.play("idle")
+			$AnimationPlayer.play("idle")
 		else:
-			sprite.play("run")
+			$AnimationPlayer.play("run")
 	
 	
 func _physics_process(delta):
@@ -69,6 +63,6 @@ func _physics_process(delta):
 		velocity.y = -jump_speed
 func jump():
 	velocity.y = -jump_speed
-	sprite.play("jump")
+	$AnimationPlayer.play("jump")
 func get_gravity():
 	return jump_gravity if velocity.y < 0.0 else fall_gravity
