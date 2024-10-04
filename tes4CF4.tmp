@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4arhq8up2k54"]
+
+[ext_resource type="Script" path="res://Test Character.gd" id="1_tuhs8"]
+[ext_resource type="Texture2D" uid="uid://c4wuvwxm1lb67" path="res://black_prototyping.png" id="2_ik1u5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wr35b"]
+size = Vector2(16, 16)
+
+[node name="Test Character" type="CharacterBody2D"]
+script = ExtResource("1_tuhs8")
+jump_height = 25.0
+jump_time_to_peak = 0.7
+jump_time_to_decend = null
+max_jumps = 2
+speed = 75
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(8, 8)
+texture = ExtResource("2_ik1u5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wr35b")
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[node name="JumpBuffer" type="Timer" parent="."]
+wait_time = 0.128
+one_shot = true

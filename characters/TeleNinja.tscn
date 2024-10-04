@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bothsbtr0o8x3"]
+
+[ext_resource type="Script" path="res://Scripts/TeleNinja.gd" id="1_cckw2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wr35b"]
+size = Vector2(12, 16)
+
+[node name="TeleNinja" type="CharacterBody2D"]
+script = ExtResource("1_cckw2")
+jump_height = 25.0
+jump_time_to_decend = 0.8
+max_jumps = 2
+speed = 83
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_wr35b")
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="JumpBuffer" type="Timer" parent="."]
+wait_time = 0.07
+one_shot = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

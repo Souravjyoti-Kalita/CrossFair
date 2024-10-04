@@ -1,0 +1,103 @@
+[gd_scene load_steps=12 format=3 uid="uid://brd87uqwjbj7r"]
+
+[ext_resource type="Script" path="res://Scripts/TurtleKnight.gd" id="1_wl3d3"]
+[ext_resource type="Texture2D" uid="uid://dj4oukdros7pj" path="res://Textures/TurtleKnight.png" id="2_6pjub"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvvtf"]
+atlas = ExtResource("2_6pjub")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eu6br"]
+atlas = ExtResource("2_6pjub")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdbvc"]
+atlas = ExtResource("2_6pjub")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iygoh"]
+atlas = ExtResource("2_6pjub")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ernew"]
+atlas = ExtResource("2_6pjub")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eg0ov"]
+atlas = ExtResource("2_6pjub")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfq1q"]
+atlas = ExtResource("2_6pjub")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l0gmq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvvtf")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eu6br")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdbvc")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iygoh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ernew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eg0ov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfq1q")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wr35b"]
+size = Vector2(16, 16)
+
+[node name="TurtleKnight" type="CharacterBody2D"]
+script = ExtResource("1_wl3d3")
+jump_height = 49.0
+jump_time_to_decend = 0.8
+speed = 40
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_l0gmq")
+animation = &"jump"
+autoplay = "idle"
+frame = 1
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wr35b")
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="JumpBuffer" type="Timer" parent="."]
+wait_time = 0.07
+one_shot = true
+
+[node name="JumpCooldown" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
