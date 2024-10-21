@@ -1,91 +1,87 @@
-[gd_scene load_steps=12 format=3 uid="uid://brd87uqwjbj7r"]
+[gd_scene load_steps=9 format=3 uid="uid://brd87uqwjbj7r"]
 
 [ext_resource type="Script" path="res://Scripts/TurtleKnight.gd" id="1_wl3d3"]
-[ext_resource type="Texture2D" uid="uid://dj4oukdros7pj" path="res://Textures/TurtleKnight.png" id="2_6fw1w"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cvvtf"]
-atlas = ExtResource("2_6fw1w")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eu6br"]
-atlas = ExtResource("2_6fw1w")
-region = Rect2(80, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fdbvc"]
-atlas = ExtResource("2_6fw1w")
-region = Rect2(96, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_iygoh"]
-atlas = ExtResource("2_6fw1w")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ernew"]
-atlas = ExtResource("2_6fw1w")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eg0ov"]
-atlas = ExtResource("2_6fw1w")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jfq1q"]
-atlas = ExtResource("2_6fw1w")
-region = Rect2(64, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_l0gmq"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cvvtf")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eu6br")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fdbvc")
-}],
-"loop": false,
-"name": &"jump",
-"speed": 2.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_iygoh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ernew")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eg0ov")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jfq1q")
-}],
-"loop": true,
-"name": &"run",
-"speed": 5.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wr35b"]
 size = Vector2(16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_706s1"]
+load_path = "res://.godot/imported/Turtle Knight.png-c17be7b7d68a09acae8dacbe0bda507a.ctex"
+
+[sub_resource type="Animation" id="Animation_rkqcq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_b6boh"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_xt548"]
+resource_name = "jump"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [5, 7]
+}
+
+[sub_resource type="Animation" id="Animation_v1ts8"]
+resource_name = "run"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l6oo7"]
+_data = {
+"RESET": SubResource("Animation_rkqcq"),
+"idle": SubResource("Animation_b6boh"),
+"jump": SubResource("Animation_xt548"),
+"run": SubResource("Animation_v1ts8")
+}
 
 [node name="TurtleKnight" type="CharacterBody2D"]
 script = ExtResource("1_wl3d3")
 jump_height = 49.0
 jump_time_to_decend = 0.8
 speed = 40
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-texture_filter = 1
-sprite_frames = SubResource("SpriteFrames_l0gmq")
-animation = &"jump"
-autoplay = "idle"
-frame = 1
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_wr35b")
@@ -101,3 +97,13 @@ one_shot = true
 [node name="JumpCooldown" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = SubResource("CompressedTexture2D_706s1")
+hframes = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_l6oo7")
+}

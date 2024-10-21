@@ -57,7 +57,7 @@ func _physics_process(delta):
 	move_and_slide()
 	if was_on_floor && !is_on_floor():
 		coyote_timer.start()
-		print("Timer Start")
+		#print("Timer Start")
 	
 	if !jump_buffer.is_stopped() and is_on_floor():
 		velocity.y = -jump_speed

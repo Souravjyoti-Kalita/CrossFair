@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dj4oukdros7pj"
-path="res://.godot/imported/TurtleKnight.png-81a020a0a91dc59ebb644af3c2c91c84.ctex"
+uid="uid://cnoadfsskbhwt"
+path="res://.godot/imported/Turtle Knight.png-c17be7b7d68a09acae8dacbe0bda507a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/TurtleKnight.png"
-dest_files=["res://.godot/imported/TurtleKnight.png-81a020a0a91dc59ebb644af3c2c91c84.ctex"]
+source_file="res://Textures/Turtle Knight.png"
+dest_files=["res://.godot/imported/Turtle Knight.png-c17be7b7d68a09acae8dacbe0bda507a.ctex"]
 
 [params]
 
