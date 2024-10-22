@@ -32,35 +32,35 @@ func _process(_delta):
 	
 func _physics_process(delta):
 	
-		# Add gravity every frame
-		velocity.y += get_gravity() * delta
+	# Add gravity every frame
+	velocity.y += get_gravity() * delta
 
-		# Input affects x axis only
-		
-		velocity.x = Input.get_axis("ui_left", "ui_right") * speed
-		
-		
-		#jump count reset
-		if is_on_floor():
-			jump_count=0
-		
-		# Only allow jumping when on the ground
-		if Input.is_action_just_pressed("jump"):
-			if !coyote_timer.is_stopped():
-				jump()
-			elif jump_count < max_jumps:
-				jump()
-				jump_count +=1
-			else:
-				jump_buffer.start()	
-		var was_on_floor = is_on_floor()
-		move_and_slide()
-		if was_on_floor && !is_on_floor():
-			coyote_timer.start()
-			#print("Timer Start")
-		
-		if !jump_buffer.is_stopped() and is_on_floor():
-			velocity.y = -jump_speed
+	# Input affects x axis only
+	
+	velocity.x = Input.get_axis("ui_left", "ui_right") * speed
+	
+	
+	#jump count reset
+	if is_on_floor():
+		jump_count=0
+	
+	# Only allow jumping when on the ground
+	if Input.is_action_just_pressed("jump"):
+		if !coyote_timer.is_stopped():
+			jump()
+		elif jump_count < max_jumps:
+			jump()
+			jump_count +=1
+		else:
+			jump_buffer.start()	
+	var was_on_floor = is_on_floor()
+	move_and_slide()
+	if was_on_floor && !is_on_floor():
+		coyote_timer.start()
+		#print("Timer Start")
+	
+	if !jump_buffer.is_stopped() and is_on_floor():
+		velocity.y = -jump_speed
 func jump():
 	velocity.y = -jump_speed
 	$AnimationPlayer.play("jump")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://hs6k82jtef2s"]
 
+[ext_resource type="PackedScene" uid="uid://brd87uqwjbj7r" path="res://characters/TurtleKnight.tscn" id="3_0feyt"]
 [ext_resource type="Texture2D" uid="uid://bu88uibitkreq" path="res://bg.png" id="3_1dsop"]
-[ext_resource type="PackedScene" uid="uid://bothsbtr0o8x3" path="res://characters/TeleNinja.tscn" id="3_1irx6"]
 [ext_resource type="Texture2D" uid="uid://jpso4po5d71y" path="res://levels/Jungle tilesheet.png" id="3_ep7mm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pr5fe"]
@@ -151,9 +151,5 @@ z_index = -4
 position = Vector2(178, 137)
 texture = ExtResource("3_1dsop")
 
-[node name="TeleNinja" parent="." instance=ExtResource("3_1irx6")]
-position = Vector2(87, 141)
-jump_height = 25.0
-jump_time_to_decend = 0.6
-max_jumps = 2
-speed = 83
+[node name="TurtleKnight" parent="." instance=ExtResource("3_0feyt")]
+position = Vector2(86, 141)
