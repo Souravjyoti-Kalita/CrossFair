@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://brd87uqwjbj7r"]
 
-[ext_resource type="Script" path="res://Scripts/TurtleKnight.gd" id="1_wl3d3"]
+[ext_resource type="Script" path="res://Scripts/CharacterController.gd" id="1_m8jun"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wr35b"]
 size = Vector2(16, 16)
@@ -78,7 +78,7 @@ _data = {
 }
 
 [node name="TurtleKnight" type="CharacterBody2D"]
-script = ExtResource("1_wl3d3")
+script = ExtResource("1_m8jun")
 jump_height = 49.0
 jump_time_to_decend = 0.8
 speed = 40
