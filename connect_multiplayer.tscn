@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2c7bukvdbuc0"]
+
+[ext_resource type="Script" path="res://ConnectMultiplayer.gd" id="1_2ujjy"]
+
+[node name="ConnectMultiplayer" type="Node2D"]
+script = ExtResource("1_2ujjy")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="JoinBtn" type="Button" parent="CanvasLayer"]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Join"
+
+[node name="HostBtn" type="Button" parent="CanvasLayer"]
+offset_top = 33.0
+offset_right = 44.0
+offset_bottom = 64.0
+text = "Host"
